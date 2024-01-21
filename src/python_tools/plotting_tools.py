@@ -29,7 +29,7 @@ dist_handler = {
 	r'$\dfrac{km}{s}$': 1.0
 }
 
-COLORS = [ 
+COLORS = [
 	'm', 'deeppink', 'chartreuse', 'w', 'springgreen', 'peachpuff',
 	'white', 'lightpink', 'royalblue', 'lime', 'aqua' ] * 100
 
@@ -53,7 +53,7 @@ SURFACE_BODY_MAP = {
 	'jupiter': JUPITER_SURFACE_IMAGE
 }
 
-CITY_COLORS = [ 
+CITY_COLORS = [
 	'w', 'deeppink', 'chartreuse', 'magenta', 'springgreen', 'peachpuff',
 	'white', 'lightpink', 'royalblue', 'lime', 'aqua' ] * 100
 
@@ -255,7 +255,7 @@ def plot_orbits( rs, args, vectors = [] ):
 			rg *= _args[ 'cb_radius' ]
 
 			ax.plot( rg[ :, 0 ], rg[ :, 1 ], rg[ :, 2 ], cs[ n ], zorder = 10 )
-			ax.plot( [ rg[ 0, 0 ] ], [ rg[ 0, 1 ] ], [ rg[ 0, 2 ] ], cs[ n ] + 'o', zorder = 10 )			
+			ax.plot( [ rg[ 0, 0 ] ], [ rg[ 0, 1 ] ], [ rg[ 0, 2 ] ], cs[ n ] + 'o', zorder = 10 )
 
 		max_val = max( [ _r.max(), max_val ] )
 		n += 1
@@ -314,11 +314,11 @@ def plot_orbits( rs, args, vectors = [] ):
 	if _args[ 'azimuth' ] is not False:
 		ax.view_init( elev = _args[ 'elevation' ],
 					  azim = _args[ 'azimuth'   ] )
-	
+
 	if _args[ 'axes_no_fill' ]:
-		ax.w_xaxis.pane.fill = False
-		ax.w_yaxis.pane.fill = False
-		ax.w_zaxis.pane.fill = False		
+		ax.xaxis.pane.fill = False
+		ax.yaxis.pane.fill = False
+		ax.zaxis.pane.fill = False		
 
 	if _args[ 'hide_axes' ]:
 		ax.set_axis_off()
@@ -627,7 +627,7 @@ def plot_groundtracks( coords, args ):
 	for key in args.keys():
 		_args[ key ] = args[ key ]
 
-	plt.figure( figsize = _args[ 'figsize' ] )	
+	plt.figure( figsize = _args[ 'figsize' ] )
 
 	if _args[ 'surface_image' ]:
 		plt.imshow(
@@ -643,7 +643,7 @@ def plot_groundtracks( coords, args ):
 
 	for n in range( len( coords ) ):
 		plt.plot( [ coords[ n ][ 0, 1 ] ], [ coords[ n ][ 0, 2 ] ], 'o',
-			color = _args[ 'colors' ][ n ], 
+			color = _args[ 'colors' ][ n ],
 			label = _args[ 'labels' ][ n ] )
 		plt.plot( coords[ n ][ 1:, 1 ], coords[ n ][ 1:, 2 ], 'o',
 			color = _args[ 'colors' ][ n ],
@@ -1048,4 +1048,3 @@ def plot_pseudopotential_contours( system, args ):
 		plt.show()
 
 	plt.close()
-
